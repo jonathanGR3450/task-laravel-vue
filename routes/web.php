@@ -14,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('layouts.app');
+// });
+
+Route::get('/offline', function () {
+    dd('lol');
+    return view('vendor.laravelpwa.offline');
+});
+
 Route::get('{any}', function () {
     return view('layouts.app');
 })->where('any', '.*');

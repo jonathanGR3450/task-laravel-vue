@@ -8,6 +8,7 @@
     <meta name="csrf-token" value="{{ csrf_token() }}" />
     <title>Vue - tailwindcss</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @laravelPWA
 </head>
 
 <body class="bg-green-400">
