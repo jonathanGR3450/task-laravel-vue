@@ -24,5 +24,5 @@ Route::get('/offline', function () {
 });
 
 Route::get('{any}', function () {
-    return view('layouts.app');
+    return view('home');
 })->where('any', '.*');

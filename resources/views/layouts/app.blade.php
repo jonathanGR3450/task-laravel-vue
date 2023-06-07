@@ -13,10 +13,7 @@
 
 <body class="bg-green-400">
     <div id="app">
-        <nav-component></nav-component>
-        <div class="flex justify-center mt-15">
-            <router-view/>
-        </div>
+        @yield('content')
     </div>
     <script src="https://cdn.tailwindcss.com"></script>
     @vite('resources/js/app.js')

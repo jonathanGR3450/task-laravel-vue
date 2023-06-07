@@ -1,5 +1,5 @@
 
-import {createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 
 import FormComponent from '../components/task/FormComponent.vue';
 import ListComponent from '../components/task/ListComponent.vue';
@@ -53,15 +53,21 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    if (to.matched.some(record => record.meta.requiresAuth) ) {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
         if (Auth.check()) {
             next();
             return;
         } else {
-            router.push({name: 'login'});
+            router.push({ name: 'login' });
         }
     } else {
-        next();
+        const foundRoute = router.getRoutes().find(route => route.path === to.path);
+        if (!foundRoute) {
+            // Si la ruta no existe, redirigir al inicio de sesión
+            next({ path: '/login' });
+        } else {
+            next(); // Continuar con la navegación normalmente
+        }
     }
 });
 
