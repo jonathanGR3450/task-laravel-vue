@@ -57,7 +57,8 @@ RUN chown -R $user:$user .
 
 RUN npm install
 
-RUN npm run build
+# RUN npm run build
+# RUN npm run dev
 
 USER $user
 
