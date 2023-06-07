@@ -52,14 +52,14 @@ RUN mkdir -p /home/$user/.composer && \
 # copy the code at folder with user permissions
 COPY --chown=$user:$user . /var/www
 
-USER $user
+# Configurar permisos de directorio
+RUN chown -R $user:$user .
 
 RUN npm install
-# Compilar assets con Laravel Mix
-# RUN npm run production
 
-# Configurar permisos de directorio
-RUN chown -R $user:$user /var/www/storage /var/www/bootstrap/cache
+RUN npm run build
+
+USER $user
 
 # expose 9000 port
 EXPOSE 9000
