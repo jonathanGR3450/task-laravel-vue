@@ -21,10 +21,10 @@ Route::prefix('v1')->group(function () {
     Route::post('register', [AuthController::class, 'register']);
     Route::post('login', [AuthController::class, 'login']);
 
-    Route::resource('/tasks', TaskController::class);
-    Route::post('/tasks/{task}/toggled', [TaskController::class, 'toggled']);
-
+    
     Route::middleware('auth:api')->group(function () {
+        Route::resource('/tasks', TaskController::class);
+        Route::post('/tasks/{task}/toggled', [TaskController::class, 'toggled']);
         Route::post('/logout', [AuthController::class, 'logout']);
     });
 });
