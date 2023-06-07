@@ -5,12 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" value="{{ csrf_token() }}" />
     <title>Vue - tailwindcss</title>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body class="bg-green-400">
     <div id="app">
-        @yield('content')
+        <nav-component></nav-component>
+        <div class="flex justify-center mt-15">
+            <router-view/>
+        </div>
     </div>
     <script src="https://cdn.tailwindcss.com"></script>
     @vite('resources/js/app.js')

@@ -30,7 +30,7 @@
                 let data = {
                     'todo': this.task.todo
                 };
-                axios.put(`/tasks/${this.taskId}`, data)
+                axios.put(`/api/v1/tasks/${this.taskId}`, data)
                 .then(response => {
                     console.log(response);
                 })
@@ -42,7 +42,7 @@
             }
         },
         created() {
-            axios.get(`/tasks/${this.taskId}/edit`)
+            axios.get(`/api/v1/tasks/${this.taskId}/edit`)
             .then(response => {
                 this.task = response.data
             })

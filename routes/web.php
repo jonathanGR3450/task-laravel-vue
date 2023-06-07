@@ -14,9 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('task.index');
-});
-
-Route::resource('/tasks', TaskController::class);
-Route::post('/tasks/{task}/toggled', [TaskController::class, 'toggled']);
+Route::get('{any}', function () {
+    return view('layouts.app');
+})->where('any', '.*');

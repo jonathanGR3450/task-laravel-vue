@@ -48,7 +48,7 @@ export default {
     },
     methods: {
         getTasks(page = 1) {
-            axios.get(`/tasks?page=${page}`)
+            axios.get(`/api/v1/tasks?page=${page}`)
                 .then(response => {
                     this.taskList = response.data
                 })
@@ -57,13 +57,13 @@ export default {
                 })
         },
         deleteTask(id) {
-            axios.delete(`/tasks/${id}`)
+            axios.delete(`/api/v1/tasks/${id}`)
                 .then(response => {
                     this.getTasks();
                 })
         },
         toggledTask(id) {
-            axios.post(`tasks/${id}/toggled`)
+            axios.post(`/api/v1/tasks/${id}/toggled`)
                 .then(response => {
                     console.log(response);
                 });

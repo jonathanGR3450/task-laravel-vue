@@ -36,7 +36,7 @@ export default {
             let data = {
                 'todo': this.task
             };
-            axios.post('/tasks', data)
+            axios.post('/api/v1/tasks', data)
                 .then(response => {
                     console.log(response);
                 })
