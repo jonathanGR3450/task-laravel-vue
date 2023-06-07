@@ -41,9 +41,7 @@ export default {
         logout() {
             axios.post('/api/v1/logout')
                 .then(response => {
-                    console.log(response);
                     Auth.logout(); //reset local storage
-                    // window.location.reload();
                     this.$store.commit('setAuthenticated', false);
                     this.$router.push({ name: 'login' })
                 })
